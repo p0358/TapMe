@@ -138,6 +138,6 @@ static void PreferencesChangedCallback(CFNotificationCenterRef center, void *obs
 
 // Fetch preferences update
 %ctor {
-	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback) PreferencesChangedCallback, CFSTR("com.alexpng.tapme.prefschanged"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
+	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback) PreferencesChangedCallback, CFSTR("com.alexpng.tapme.prefschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 	refreshPrefs();
 }
